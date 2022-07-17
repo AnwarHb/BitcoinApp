@@ -13,7 +13,7 @@ pipeline{
 		stage('Build image') {
 
 			steps {
-				sh ' docker build -t anwarhb/docker_bitcoin:latest .'
+				sh 'sudo docker build -t anwarhb/docker_bitcoin:latest .'
 			}
 		}
 
@@ -21,7 +21,7 @@ pipeline{
 		stage('Push to dockerHub') {
 
 			steps {
-				sh 'docker push anwarhb/docker_bitcoin'
+				sh ' sudo docker push anwarhb/docker_bitcoin'
 			}
 		}
 	}

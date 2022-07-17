@@ -1,44 +1,25 @@
-pipeline{
+pipeline {
 
-	agent any
-
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-	}
-
-	stages {
-	
-		stage('duckerhub login') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
-		
-		stage('Build') {
-
-			steps {
-				sh 'docker build -t anwarhb/docker_bitcoin:latest .'
-
-			}
-		}
+  agent any
+  
+  stages {
 
 
-		stage('Push') {
+    stage('image Build') {
+      steps {
+        sh 'sudo docker build -t anwarhb/docker_bitcoin:latest .'
 
-			steps {
-				sh ' docker push anwarhb/docker_bitcoin'
+      }
+    }
 
-			}
-		}
-	}
+    stage('push to dockerHub') {
+      steps {
+	  sh 'sudo docker push anwarhb/docker_bitcoin:latest'
+        }
+      }
+    }
 
-	post {
-		always {
-			sh ' docker logout'
-		}
-	}
-
+    
 }
 
 

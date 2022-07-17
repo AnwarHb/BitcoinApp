@@ -7,7 +7,7 @@ services:
       - "6379:6379"
   web:
     build: .
-     container_name: docker_bitcoin
+    container_name: docker_bitcoin
     ports:
       - "5000:5000"
     volumes:

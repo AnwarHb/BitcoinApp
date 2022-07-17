@@ -1,0 +1,21 @@
+.message {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    text-align: center;
+    color: DarkGoldenRod;
+}
+
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 70%;
+    height: 1200px;
+    border: 8px dotted red;
+
+}

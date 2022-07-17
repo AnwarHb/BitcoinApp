@@ -8,21 +8,32 @@ pipeline{
 
 	stages {
 	
+		stage('Login to dockerhub') {
 
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
 		
 		stage('Build image') {
 
 			steps {
-				sh 'sudo docker build -t anwarhb/docker_bitcoin:latest .'
+				sh 'docker build -t anwarhb/docker_bitcoin:latest .'
 			}
 		}
 
 
-		stage('Push to dockerHub') {
+		stage('Push to dockerhub') {
 
 			steps {
-				sh ' sudo docker push anwarhb/docker_bitcoin'
+				sh ' docker push anwarhb/docker_bitcoin'
 			}
+		}
+	}
+
+	post {
+		always {
+			sh ' docker logout'
 		}
 	}
 

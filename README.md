@@ -6,9 +6,12 @@ The is a a Python Web APP that:
 - Presents the Average Price for the last 10 minutes
 
 #### URLs used:
-To get the currwnt BitCoin price:
+To get the current BitCoin price:
+
 [https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT](https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT)
+
 To get the average price over the last 10 minutes:
+
 [https://min-api.cryptocompare.com/data/v2/histominute?fsym=BTC&tsym=USD&limit=10](https://min-api.cryptocompare.com/data/v2/histominute?fsym=BTC&tsym=USD&limit=10)
 
 #### packages needed:
